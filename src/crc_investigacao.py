@@ -14,15 +14,15 @@ from utils import text_to_bits, bits_to_bytes, inserir_erro_burst, salvar_csv
 from crc_manual import calcular_crc_manual, check_frame_manual
 try:
     from crc import Calculator, Crc16
-except Exception as e:
-    raise RuntimeError("Biblioteca 'crc' não encontrada. Rode: pip install crc") from e
+except ImportError:
+    raise RuntimeError("Biblioteca 'crc' não encontrada. Rode: pip install crc")
 
 # Parâmetros (nome aleatório e matrícula final 7 conforme solicitado)
 NOME = "Lucas Andrade Souza"
 MATRICULA_FINAL = 7
 GERADOR_BITS = "11000000000000101"  # CRC-16/GENIBUS (exemplo para final 7)
 
-calculator_lib = Calculator(Crc16.GENIBUS)
+calculator_lib = Calculator(Crc16.MODBUS)
 
 # Preparar mensagem base
 mensagem_bits_base = text_to_bits(NOME)  # ASCII -> bits

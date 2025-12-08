@@ -1,0 +1,25 @@
+Investigação CRC - Relatório automático
+=====================================
+
+Nome usado (MENSAGEM_BASE): Lucas Andrade Souza
+Gerador (bits): 11000000000000101
+CRC calculado (bits, r=16): 1110111001100001
+
+Resultados dos 10 testes:
+
+Teste 1: pos=55, burst=4 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
+Teste 2: pos=68, burst=4 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
+Teste 3: pos=40, burst=5 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
+Teste 4: pos=65, burst=7 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
+Teste 5: pos=137, burst=8 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
+Teste 6: pos=39, burst=6 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
+Teste 7: pos=74, burst=2 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
+Teste 8: pos=80, burst=2 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
+Teste 9: pos=139, burst=6 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
+Teste 10: pos=148, burst=2 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
+
+Resumo:
+Total de falhas (não detectados) — Manual: 0 / 10
+Total de falhas (não detectados) — Biblioteca: 0 / 10
+
+Notas: Uma detecção 'FALHOU' significa que o erro **não** foi detectado (resto zero).
