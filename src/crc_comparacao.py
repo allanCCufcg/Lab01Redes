@@ -23,7 +23,7 @@ except Exception as e:
 
 # Configuração
 GERADOR_BITS = "11000000000000101"  # CRC-16/GENIBUS (uso do exemplo)
-calculator_lib = Calculator(Crc16.GENIBUS)
+calculator_lib = Calculator(Crc16.MODBUS)
 
 TAMANHOS_BYTES = [1500, 3000, 6000, 16000]
 RESULTS = []

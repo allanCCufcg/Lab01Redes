@@ -1,0 +1,30 @@
+[
+  {
+    "tamanho": 1500,
+    "tempo_manual_s": 0.08042900000873487,
+    "tempo_lib_s": 0.07859319999988656,
+    "pico_mem_manual_kib": 105.7587890625,
+    "pico_mem_lib_kib": 8.7568359375
+  },
+  {
+    "tamanho": 3000,
+    "tempo_manual_s": 0.143717300001299,
+    "tempo_lib_s": 0.14977360000193585,
+    "pico_mem_manual_kib": 211.2509765625,
+    "pico_mem_lib_kib": 0.67578125
+  },
+  {
+    "tamanho": 6000,
+    "tempo_manual_s": 0.2946853000030387,
+    "tempo_lib_s": 0.285799399993266,
+    "pico_mem_manual_kib": 422.1884765625,
+    "pico_mem_lib_kib": 0.67578125
+  },
+  {
+    "tamanho": 16000,
+    "tempo_manual_s": 0.76693910000904,
+    "tempo_lib_s": 0.8645626000070479,
+    "pico_mem_manual_kib": 1125.3134765625,
+    "pico_mem_lib_kib": 0.67578125
+  }
+]
