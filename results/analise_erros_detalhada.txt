@@ -1,0 +1,62 @@
+ANÁLISE DETALHADA DOS ERROS NÃO DETECTADOS
+============================================================
+
+Configuração:
+- Mensagem: Lucas Andrade Souza
+- Gerador: CRC-16/MAXIM (10011000000010001)
+- Tamanho do quadro: 168 bits
+- Testes realizados: 10
+- Erros não detectados: 10
+
+EXEMPLOS DE ERROS NÃO DETECTADOS:
+------------------------------------------------------------
+
+Exemplo 1:
+  Posição: 55
+  Tamanho do burst: 17 bits
+  Bits originais:   10110111001100100
+  Bits corrompidos: 01001000110011011
+  Padrão de erro:   11111111111111111
+
+Exemplo 2:
+  Posição: 19
+  Tamanho do burst: 17 bits
+  Bits originais:   00011011000010111
+  Bits corrompidos: 11100100111101000
+  Padrão de erro:   11111111111111111
+
+Exemplo 3:
+  Posição: 117
+  Tamanho do burst: 17 bits
+  Bits originais:   01101101111011101
+  Bits corrompidos: 10010010000100010
+  Padrão de erro:   11111111111111111
+
+Exemplo 4:
+  Posição: 120
+  Tamanho do burst: 17 bits
+  Bits originais:   01101111011101010
+  Bits corrompidos: 10010000100010101
+  Padrão de erro:   11111111111111111
+
+Exemplo 5:
+  Posição: 47
+  Tamanho do burst: 17 bits
+  Bits originais:   00100000101101110
+  Bits corrompidos: 11011111010010001
+  Padrão de erro:   11111111111111111
+
+
+ANÁLISE:
+------------------------------------------------------------
+1. Como esperado, erros com burst > 16 bits (grau do polinômio) podem
+   escapar da detecção.
+
+2. A probabilidade de não detecção para bursts > r é aproximadamente 2^(-r),
+   ou seja, cerca de 1 em 65.536 para CRC-16.
+
+3. Os erros não detectados ocorrem quando o padrão de erro é divisível
+   pelo polinômio gerador, resultando em resto zero.
+
+4. Isso demonstra a importância de escolher o polinômio gerador adequado
+   e entender as limitações do CRC para o tipo de erro esperado.

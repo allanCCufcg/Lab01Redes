@@ -1,25 +1,54 @@
-Investigação CRC - Relatório automático
-=====================================
+Parte 4: Análise Investigativa da Detecção de Erros
+============================================================
 
-Nome usado (MENSAGEM_BASE): Lucas Andrade Souza
-Gerador (bits): 11000000000000101
-CRC calculado (bits, r=16): 1110111001100001
+4.1 - Configuração do Cenário
+------------------------------
+MENSAGEM: Lucas Andrade Souza
+MENSAGEM_BASE (bits ASCII): 01001100011101010110001101100001011100110010000001...01001000000101001101101111011101010111101001100001
+Tamanho da mensagem: 152 bits
+Matrícula final: 7
+Gerador usado: CRC-16/MAXIM
+Gerador (bits): 10011000000010001
+CRC calculado: 0111101110001101
 
-Resultados dos 10 testes:
+4.2 - Resultados dos 10 Testes
+------------------------------
 
-Teste 1: pos=55, burst=4 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
-Teste 2: pos=68, burst=4 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
-Teste 3: pos=40, burst=5 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
-Teste 4: pos=65, burst=7 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
-Teste 5: pos=137, burst=8 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
-Teste 6: pos=39, burst=6 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
-Teste 7: pos=74, burst=2 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
-Teste 8: pos=80, burst=2 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
-Teste 9: pos=139, burst=6 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
-Teste 10: pos=148, burst=2 bits -> Manual=DETECTOU, Biblioteca=DETECTOU
+| Teste | Posição | Tamanho Burst | Detecção | Padrão de Erro |
+|-------|---------|---------------|----------|----------------|
+|   1   |   28    |       7       |   SIM    | 0001011 -> 1110100 |
+|   2   |   70    |       2       |   SIM    | 00 -> 11 |
+|   3   |   57    |       3       |   SIM    | 110 -> 001 |
+|   4   |   26    |       3       |   SIM    | 100 -> 011 |
+|   5   |   139   |       7       |   SIM    | 1101001 -> 0010110 |
+|   6   |   151   |       9       |   SIM    | 101111011 -> 010000100 |
+|   7   |    8    |      14       |   SIM    | 01110101011000 -> 10001010100111 |
+|   8   |   23    |       8       |   SIM    | 10110000 -> 01001111 |
+|   9   |   59    |      11       |   SIM    | 01110011001 -> 10001100110 |
+|  10   |    6    |      16       |   SIM    | 0001110101011000 -> 1110001010100111 |
+
 
 Resumo:
-Total de falhas (não detectados) — Manual: 0 / 10
-Total de falhas (não detectados) — Biblioteca: 0 / 10
+Total de erros detectados: 10 / 10
+Total de erros NÃO detectados: 0 / 10
 
-Notas: Uma detecção 'FALHOU' significa que o erro **não** foi detectado (resto zero).
+
+Análise e Reflexões:
+------------------------------
+1. O CRC-16/MAXIM tem capacidade de detectar:
+   - Todos os erros de bit único
+   - Todos os erros de burst até 16 bits
+   - Todos os erros com número ímpar de bits
+
+2. Todos os erros foram detectados nestes testes, mas isso não significa
+   que o CRC é perfeito. Com mais testes ou bursts maiores, eventualmente
+   encontraríamos padrões não detectados.
+
+3. Limitações conhecidas do CRC:
+   - Não pode detectar 100% dos erros para bursts > r bits
+   - A probabilidade de não detecção é aproximadamente 2^(-r) para erros aleatórios
+   - Para CRC-16, isso significa ~0.0015% de chance de falha
+
+
+Teste adicional: Encontrado erro não detectado!
+Burst de 22 bits na posição 139
