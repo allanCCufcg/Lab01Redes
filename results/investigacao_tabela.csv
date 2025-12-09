@@ -1,11 +1,11 @@
-teste,pos,burst_bits,manual_detectou,lib_detectou
-1,55,4,True,True
-2,68,4,True,True
-3,40,5,True,True
-4,65,7,True,True
-5,137,8,True,True
-6,39,6,True,True
-7,74,2,True,True
-8,80,2,True,True
-9,139,6,True,True
-10,148,2,True,True
+teste,pos,burst_bits,manual_detectou,padrão_erro
+1,28,7,True,0001011 -> 1110100
+2,70,2,True,00 -> 11
+3,57,3,True,110 -> 001
+4,26,3,True,100 -> 011
+5,139,7,True,1101001 -> 0010110
+6,151,9,True,101111011 -> 010000100
+7,8,14,True,01110101011000 -> 10001010100111
+8,23,8,True,10110000 -> 01001111
+9,59,11,True,01110011001 -> 10001100110
+10,6,16,True,0001110101011000 -> 1110001010100111
